@@ -9,6 +9,7 @@ Culture ------------------------------------------------------------------------
 
 
 Accountability ----------------------------------------------------------------------------------
+
 Have Stand-up Meetings
    -Meeting where each person can share their progress, feelings, and any challenges they are facing, where each person must share.
 Check-ins consistently in a direct and effective way
