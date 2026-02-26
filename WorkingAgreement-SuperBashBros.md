@@ -54,8 +54,8 @@
 </ol>
 <h2>Agreemment Review</h2>
 <pr>Agreement will be reviewed before each major project to ensure the relevance of the agreement.</pr>
-Alexander Kindall
-Cason Nicholson
-Corbin Hovasse
-Ubaldo Bogarin
-Daniel Moran
+<pr>Alexander Kindall<br>
+Cason Nicholson<br>
+Corbin Hovasse<br>
+Ubaldo Bogarin<br>
+Daniel Moran</pr>
