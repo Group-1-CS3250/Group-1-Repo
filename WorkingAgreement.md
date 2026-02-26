@@ -1,4 +1,4 @@
-Culture ----------------------------------------------------------------------------------
+<h2>Culture</h2>
 1. Trust
    No fear of judgment from other team members when your opinion is voiced.
    Have trust in each person's capabilities and commitment.
