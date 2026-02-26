@@ -19,9 +19,11 @@
       -Present team members will track meeting minutes that can be used to update any team member who is currently not present. </pr>
 </ol>
 <h2> Meetings </h2>
+<ol>
    <li> Times to meet</li>
    <pr> In-class meeting times will take priority over all else. <br>
    However, if stated or deemed necessary by the majority of the group, a consensus will be reached to meet on our communication platform.</pr>
+</ol>
 <h2> Communication</h2>
 <ol>
    <li> Methods of Communicaiton</li>
