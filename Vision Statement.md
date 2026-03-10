@@ -10,5 +10,4 @@ Vision Statement
 
 &nbsp;	***Unlike***: Online/in-person blackjack games that show emphasis on multiple players acting at once rather than a single experience like our project.
 
-&nbsp;	***Our Product***: User pulls a face card, some text will be displayed to inform the user on what value the card represents, in this case 10. This will then calculate the value in an easy to visualize format.
 
