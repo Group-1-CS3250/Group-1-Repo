@@ -6,7 +6,7 @@ public class Card{
 	this.rank = rank;
 	this.suit = suit;
     }
-    public String value(){
+    public String DisplayCard(){
 	return rank + " of " + suit;
         }
 }
