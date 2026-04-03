@@ -25,14 +25,15 @@ public class Deck {
     public Card draw() {
         Card first = deck.remove(0);
         System.out.println(first.DisplayCard());
-        deck.add(first);
 		return first;
     }
+	
     public void showAll() {
     	for (Card c: deck) {
     	    System.out.println(c.DisplayCard());
     	}
     }
-    
+    public int getSize() {
+		return deck.size();
 }
 	
