@@ -24,13 +24,13 @@ public class Deck {
     // todo: add functionality to add to discard, to indicate when decks needs to be reshuffled
     public Card draw() {
         Card first = deck.remove(0);
-        System.out.println(first.DisplayCard());
+        System.out.println(first.displayCard());
 		return first;
     }
 	
     public void showAll() {
     	for (Card c: deck) {
-    	    System.out.println(c.DisplayCard());
+    	    System.out.println(c.displayCard());
     	}
     }
 	public void reset() {
