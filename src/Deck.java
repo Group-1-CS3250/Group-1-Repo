@@ -1,11 +1,13 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
  * Represents a deck of 52 playing cards.
  * @author Super Bash Bros
  * @version 1.0
  */
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
+
 public class Deck {
 	private List<Card> deck = new ArrayList<>();
 
@@ -52,5 +54,5 @@ public class Deck {
 }
     public int getSize() {
 		return deck.size();
+	}
 }
-	
