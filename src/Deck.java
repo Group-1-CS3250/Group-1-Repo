@@ -1,3 +1,8 @@
+/**
+ * Represents a deck of 52 playing cards.
+ * @author Super Bash Bros
+ * @version 1.0
+ */
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
