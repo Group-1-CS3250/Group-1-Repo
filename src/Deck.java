@@ -33,6 +33,18 @@ public class Deck {
     	    System.out.println(c.DisplayCard());
     	}
     }
+	public void reset() {
+    deck.clear();
+
+    String[] suits = {"Hearts", "Clubs", "Diamonds", "Spades"};
+    String[] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+
+    for (int i = 0; i < suits.length; i++) {
+        for (int j = 0; j < ranks.length; j++) {
+            deck.add(new Card(ranks[j], suits[i]));
+        }
+    }
+}
     public int getSize() {
 		return deck.size();
 }
