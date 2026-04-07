@@ -14,10 +14,17 @@ public class Main {
      * @param args ignored
      */
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Sample App");
-        JLabel label = new JLabel("Hello from Java!", SwingConstants.CENTER);
+        JFrame frame = new JFrame("BlackJack Teacher");
+        JLabel label = new JLabel("Shuffle deck or draw cards to learn blackjack", SwingConstants.CENTER);
+        JButton shuffleB = new JButton("Shuffle");
+        shuffleB.setBounds(SwingConstants.LEFT, 350, 220, 50);
+        frame.add(shuffleB);
+        JButton drawB = new JButton("Draw");
+        drawB.setBounds(SwingConstants.RIGHT+220,350, 220, 50);
+        frame.add(drawB);
+
         frame.add(label);
-        frame.setSize(300, 200);
+        frame.setSize(500, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
