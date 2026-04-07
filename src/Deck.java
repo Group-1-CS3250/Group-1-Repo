@@ -1,6 +1,6 @@
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Represents a deck of 52 playing cards.
@@ -24,8 +24,8 @@ public class Deck {
     }
     // shuffles deck
     public void shuffle() {
-	Collections.shuffle(deck);
-	System.out.println("Cards Shuffled");
+        Collections.shuffle(deck);
+        System.out.println("Cards Shuffled");
     }
     //draws card from top of deck and adds it to the end of the deck
     // todo: add functionality to add to discard, to indicate when decks needs to be reshuffled
@@ -41,17 +41,17 @@ public class Deck {
     	}
     }
 	public void reset() {
-    deck.clear();
+        deck.clear();
 
-    String[] suits = {"Hearts", "Clubs", "Diamonds", "Spades"};
-    String[] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+        String[] suits = {"Hearts", "Clubs", "Diamonds", "Spades"};
+        String[] ranks = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
 
-    for (int i = 0; i < suits.length; i++) {
-        for (int j = 0; j < ranks.length; j++) {
-            deck.add(new Card(ranks[j], suits[i]));
+        for (int i = 0; i < suits.length; i++) {
+            for (int j = 0; j < ranks.length; j++) {
+                deck.add(new Card(ranks[j], suits[i]));
+            }
         }
     }
-}
     public int getSize() {
 		return deck.size();
 	}
