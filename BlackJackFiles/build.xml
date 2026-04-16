@@ -110,6 +110,7 @@
         <pathelement path="${build.dir}"/>
         <pathelement path="${junit.jar}"/>
       </classpath>
+      <arg value="execute"/>
       <arg value="--select-class=BlackJackTest"/>
     </java>
   </target>
