@@ -10,6 +10,22 @@
   <property name="jar.dir"     value="build/jar"/>
   <property name="dist.dir"    value="dist"/>
   <property name="docs.dir"    value="build/docs"/>
+  <property name="lib.dir" value="BlackJackFiles/lib"/>
+  <property name="test.dir" value="src"/> 
+
+
+  <!-- JUnit 5 JARs installed via apt (junit5 package) -->
+  <property name="junit.jar"
+            value="/usr/share/java/junit-platform-console-standalone.jar"/>
+  <path id="junit.classpath">
+    <pathelement location="${junit.jar}"/>
+    <pathelement location="/usr/share/java/junit-jupiter-api.jar"/>
+    <pathelement location="/usr/share/java/junit-jupiter-engine.jar"/>
+    <pathelement location="/usr/share/java/junit-platform-launcher.jar"/>
+    <pathelement location="/usr/share/java/junit-platform-engine.jar"/>
+    <pathelement location="/usr/share/java/junit-platform-commons.jar"/>
+    <pathelement location="/usr/share/java/opentest4j.jar"/>
+  </path>
 
   <!-- Javadoc external API links. Uses the JDK running Ant; no hard-coded Java version. -->
   <condition property="javadoc.api.url" value="https://docs.oracle.com/javase/8/docs/api/">
@@ -93,7 +109,10 @@
     <javac srcdir="${src.dir}"
            destdir="${build.dir}"
            includeantruntime="false"
-           debug="true"/>
+           debug="true"
+           excludes="BlackJackTest.java">
+      <classpath refid="junit.classpath"/>
+    </javac>
   </target>
 
   <target name="jar" depends="compile" description="Package classes into an executable JAR">
@@ -119,6 +138,18 @@
   </target>
 
   <target name="javadoc-all" depends="javadoc, javadoc-internal" description="Generate both standard and internal documentation sets"/>
+
+  <target name="test" depends="compile">
+  <junit printsummary="yes" haltonfailure="yes">
+    <classpath>
+      <pathelement path="${build.dir}"/>
+      <fileset dir="${lib.dir}" includes="junit*.jar"/>
+    </classpath>
+    <batchtest>
+      <fileset dir="${test.dir}" includes="**/*Test.java"/>
+    </batchtest>
+  </junit>
+</target>
 
   <target name="package" description="Build the native installer for the current OS (DMG, DEB, or MSI)">
     <antcall target="dmg"/>
