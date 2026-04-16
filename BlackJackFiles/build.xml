@@ -11,6 +11,8 @@
   <property name="dist.dir"    value="dist"/>
   <property name="docs.dir"    value="build/docs"/>
 
+  <property name="junit.jar" value="lib/junit-platform-console-standalone-6.1.0-M1.jar"/>
+
   <!-- Javadoc external API links. Uses the JDK running Ant; no hard-coded Java version. -->
   <condition property="javadoc.api.url" value="https://docs.oracle.com/javase/8/docs/api/">
     <equals arg1="${java.specification.version}" arg2="1.8"/>
@@ -93,7 +95,23 @@
     <javac srcdir="${src.dir}"
            destdir="${build.dir}"
            includeantruntime="false"
-           debug="true"/>
+           debug="true">
+      <classpath>
+        <pathelement path="${junit.jar}"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="test" depends="compile" description="Run JUnit 5 tests">
+    <java classname="org.junit.platform.console.ConsoleLauncher"
+          fork="true"
+          failonerror="false">
+      <classpath>
+        <pathelement path="${build.dir}"/>
+        <pathelement path="${junit.jar}"/>
+      </classpath>
+      <arg value="--select-class=BlackJackTest"/>
+    </java>
   </target>
 
   <target name="jar" depends="compile" description="Package classes into an executable JAR">
