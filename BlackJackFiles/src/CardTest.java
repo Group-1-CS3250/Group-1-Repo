@@ -2,8 +2,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 /**
  * The test class for SampleClass.
 * @author Super Bash Bros
@@ -37,7 +35,7 @@ public class CardTest {
         Card card_1 = new Card("2", "Hearts");
         Card card_2 = new Card("A", "Clubs");
         assertEquals("2", card_1.rank);
-        assertEquals("B", card_2.rank);
+        assertEquals("A", card_2.rank);
 
     }
 
@@ -52,7 +50,5 @@ public class CardTest {
         assertEquals("Hearts", card_1.suit);
         assertEquals("Clubs", card_2.suit);
     }
-
-
 }
 

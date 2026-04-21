@@ -36,6 +36,7 @@ public class DeskTest extends junit.framework.TestCase {
 
     /**
      * First Card is Ace of hearts. 
+    */
     
     @Test
     public void testFirstCard() {
@@ -44,6 +45,5 @@ public class DeskTest extends junit.framework.TestCase {
        
         assertEquals("Hearts", deck_1.getCard(0).getSuit());
     }
-    */
 
 }

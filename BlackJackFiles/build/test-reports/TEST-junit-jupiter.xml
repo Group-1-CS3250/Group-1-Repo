@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnit Jupiter" tests="3" skipped="0" failures="1" errors="0" time="0.104" hostname="vboxuser" timestamp="2026-04-20T20:19:43">
+<testsuite name="JUnit Jupiter" tests="3" skipped="0" failures="0" errors="0" time="0.22" hostname="vboxuser" timestamp="2026-04-20T20:31:28">
 <properties>
 <property name="file.encoding" value="UTF-8"/>
 <property name="file.separator" value="/"/>
@@ -51,31 +51,19 @@
 <property name="user.name" value="dan"/>
 <property name="user.timezone" value="America/Denver"/>
 </properties>
-<testcase name="testRank()" classname="CardTest" time="0.016">
-<failure message="expected: &lt;B&gt; but was: &lt;A&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <B> but was: <A>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
-	at CardTest.testRank(CardTest.java:40)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-]]></failure>
+<testcase name="testRank()" classname="CardTest" time="0.005">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:CardTest]/[method:testRank()]
 display-name: testRank()
 ]]></system-out>
 </testcase>
-<testcase name="testDeskSize()" classname="DeskTest" time="0.034">
+<testcase name="testDeskSize()" classname="DeskTest" time="0.048">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:DeskTest]/[method:testDeskSize()]
 display-name: testDeskSize()
 ]]></system-out>
 </testcase>
-<testcase name="testSuit()" classname="CardTest" time="0.003">
+<testcase name="testSuit()" classname="CardTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:CardTest]/[method:testSuit()]
 display-name: testSuit()
