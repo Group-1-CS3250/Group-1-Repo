@@ -30,6 +30,7 @@
     <pathelement location="/usr/share/java/opentest4j.jar"/>
   </path>
 
+
   <!-- Javadoc external API links. Uses the JDK running Ant; no hard-coded Java version. -->
   <condition property="javadoc.api.url" value="https://docs.oracle.com/javase/8/docs/api/">
     <equals arg1="${java.specification.version}" arg2="1.8"/>
@@ -107,40 +108,16 @@
     <delete dir="${dist.dir}"/>
   </target>
 
-  <target name="compile" depends="preflight" description="Compile Java source code">
-    <mkdir dir="${build.dir}"/>
-    <javac srcdir="${src.dir}"
-           destdir="${build.dir}"
-           includeantruntime="false"
-           debug="true"
-           excludes="BlackJackTest.java">
-      <classpath refid="junit.classpath"/>
-    </javac>
-  </target>
-
-  <target name="jar" depends="compile" description="Package classes into an executable JAR">
-    <mkdir dir="${jar.dir}"/>
-    <jar destfile="${jar.dir}/${app.name}.jar" basedir="${build.dir}">
-      <manifest>
-        <attribute name="Main-Class" value="${main.class}"/>
-        <attribute name="Implementation-Version" value="${app.version}"/>
-      </manifest>
-    </jar>
-  </target>
-
-  <target name="run" depends="jar" description="Run the application from the JAR for testing">
-    <java jar="${jar.dir}/${app.name}.jar" fork="true"/>
-  </target>
-
-  <target name="javadoc" depends="preflight" description="Generate standard API documentation">
-    <generate-javadoc access-level="protected" output-subdir="api"/>
-  </target>
-
-  <target name="javadoc-internal" depends="preflight" description="Generate internal documentation (includes private members)">
-    <generate-javadoc access-level="private" output-subdir="internal"/>
-  </target>
-
-  <target name="javadoc-all" depends="javadoc, javadoc-internal" description="Generate both standard and internal documentation sets"/>
+<target name="compile" depends="preflight" description="Compile Java source code">
+  <mkdir dir="${build.dir}"/>
+  <javac srcdir="${src.dir}"
+         destdir="${build.dir}"
+         includeantruntime="false"
+         debug="true"
+         excludes="*Test.java">
+    <classpath refid="junit.classpath"/>
+  </javac>
+</target>
 
 <target name="compile-tests" depends="compile" description="Compile test source files">
   <mkdir dir="${test.build.dir}"/>
@@ -170,6 +147,32 @@
     <arg value="--reports-dir=${test.report.dir}"/>
   </java>
 </target>
+
+  <target name="jar" depends="compile" description="Package classes into an executable JAR">
+    <mkdir dir="${jar.dir}"/>
+    <jar destfile="${jar.dir}/${app.name}.jar" basedir="${build.dir}">
+      <manifest>
+        <attribute name="Main-Class" value="${main.class}"/>
+        <attribute name="Implementation-Version" value="${app.version}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="jar" description="Run the application from the JAR for testing">
+    <java jar="${jar.dir}/${app.name}.jar" fork="true"/>
+  </target>
+
+  <target name="javadoc" depends="preflight" description="Generate standard API documentation">
+    <generate-javadoc access-level="protected" output-subdir="api"/>
+  </target>
+
+  <target name="javadoc-internal" depends="preflight" description="Generate internal documentation (includes private members)">
+    <generate-javadoc access-level="private" output-subdir="internal"/>
+  </target>
+
+  <target name="javadoc-all" depends="javadoc, javadoc-internal" description="Generate both standard and internal documentation sets"/>
+
+
 
  <!--<target name="test" depends="compile">
   <junit printsummary="yes" haltonfailure="yes">

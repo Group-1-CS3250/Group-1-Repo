@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnit Vintage" tests="1" skipped="0" failures="0" errors="0" time="0.022" hostname="vboxuser" timestamp="2026-04-20T20:31:28">
+<testsuite name="JUnit Vintage" tests="0" skipped="0" failures="0" errors="0" time="0.004" hostname="vboxuser" timestamp="2026-04-21T11:03:37">
 <properties>
 <property name="file.encoding" value="UTF-8"/>
 <property name="file.separator" value="/"/>
@@ -51,12 +51,6 @@
 <property name="user.name" value="dan"/>
 <property name="user.timezone" value="America/Denver"/>
 </properties>
-<testcase name="testDeskSize" classname="DeskTest" time="0.001">
-<system-out><![CDATA[
-unique-id: [engine:junit-vintage]/[runner:DeskTest]/[test:testDeskSize(DeskTest)]
-display-name: testDeskSize
-]]></system-out>
-</testcase>
 <system-out><![CDATA[
 unique-id: [engine:junit-vintage]
 display-name: JUnit Vintage
