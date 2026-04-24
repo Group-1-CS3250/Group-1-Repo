@@ -402,6 +402,118 @@ public class BlackJackTest {
         assertTrue(dealer.isBust());
     }
 
+    // 17a. Empty hand getValue() returns 0
+    @Test
+    void testEmptyHandGetValue() {
+        assertEquals(0, hand.getValue(), "Empty hand should have value 0");
+    }
+
+    // 17b. Empty hand isBust() returns false
+    @Test
+    void testEmptyHandIsNotBust() {
+        assertFalse(hand.isBust(), "Empty hand should not be a bust");
+    }
+
+    // 17c. Empty hand isBlackjack() returns false
+    @Test
+    void testEmptyHandIsNotBlackjack() {
+        assertFalse(hand.isBlackjack(), "Empty hand should not be blackjack");
+    }
+
+    // 17d. Empty hand showHand() returns empty string
+    @Test
+    void testEmptyHandShowHand() {
+        assertEquals("", hand.showHand(), "Empty hand should display as empty string");
+    }
+
+    // 17e. Empty hand getSize() returns 0
+    @Test
+    void testEmptyHandGetSize() {
+        assertEquals(0, hand.getSize(), "Empty hand should have size 0");
+    }
+
+    // 18a. Single card hand returns correct value
+    @Test
+    void testSingleCardHandValue() {
+        hand.addCard(new Card("7", "Hearts"));
+        assertEquals(7, hand.getValue());
+    }
+
+    // 18b. Single card hand is not a bust
+    @Test
+    void testSingleCardHandNotBust() {
+        hand.addCard(new Card("K", "Spades"));
+        assertFalse(hand.isBust());
+    }
+
+    // 18c. Single card hand is not blackjack (needs exactly 2 cards)
+    @Test
+    void testSingleCardHandNotBlackjack() {
+        hand.addCard(new Card("A", "Hearts"));
+        assertFalse(hand.isBlackjack(), "Single Ace alone is not blackjack");
+    }
+
+    // 19a. showHand() with one card has no leading comma
+    @Test
+    void testShowHandSingleCard() {
+        hand.addCard(new Card("Q", "Diamonds"));
+        assertEquals("Q of Diamonds", hand.showHand());
+    }
+
+    // 19b. showHand() with multiple cards uses comma separator
+    @Test
+    void testShowHandMultipleCards() {
+        hand.addCard(new Card("A", "Hearts"));
+        hand.addCard(new Card("K", "Spades"));
+        assertEquals("A of Hearts, K of Spades", hand.showHand());
+    }
+
+    // 20a. Three aces = 13 (two drop from 11 to 1)
+    @Test
+    void testThreeAces() {
+        hand.addCard(new Card("A", "Hearts"));
+        hand.addCard(new Card("A", "Spades"));
+        hand.addCard(new Card("A", "Clubs"));
+        assertEquals(13, hand.getValue(), "A+A+A should equal 13");
+        assertFalse(hand.isBust());
+    }
+
+    // 21a. Drawing from an empty deck throws IndexOutOfBoundsException
+    @Test
+    void testDrawFromEmptyDeckThrows() {
+        for (int i = 0; i < 52; i++) {
+            deck.draw();
+        }
+        assertThrows(IndexOutOfBoundsException.class, () -> deck.draw(),
+                "Drawing from empty deck should throw IndexOutOfBoundsException");
+    }
+
+    // 22a. After reset, all 52 cards are unique
+    @Test
+    void testDeckResetHas52UniqueCards() {
+        for (int i = 0; i < 52; i++) {
+            deck.draw();
+        }
+        deck.reset();
+        assertEquals(52, deck.getSize());
+        java.util.Set<String> unique = new HashSet<>();
+        for (int i = 0; i < 52; i++) {
+            unique.add(deck.draw().displayCard());
+        }
+        assertEquals(52, unique.size(), "All 52 cards after reset should be unique");
+    }
+
+    // 23a. resetHand allows hand to be reused correctly
+    @Test
+    void testResetHandAndReuse() {
+        hand.addCard(new Card("K", "Hearts"));
+        hand.addCard(new Card("Q", "Spades"));
+        hand.resetHand();
+        hand.addCard(new Card("5", "Clubs"));
+        assertEquals(1, hand.getSize());
+        assertEquals(5, hand.getValue());
+    }
+
     // getCards() returns the correct cards
     @Test
     void testGetCardsSize() {
