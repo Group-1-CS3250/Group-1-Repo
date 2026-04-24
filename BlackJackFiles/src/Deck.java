@@ -40,6 +40,7 @@ public class Deck {
     	    System.out.println(c.displayCard());
     	}
     }
+        
 	public void reset() {
         System.out.println("Deck reset");
         deck.clear();
@@ -53,7 +54,12 @@ public class Deck {
             }
         }
     }
+
     public int getSize() {
 		return deck.size();
+	}
+
+     public Card getCard(int i) {
+		return deck.get(i);
 	}
 }
